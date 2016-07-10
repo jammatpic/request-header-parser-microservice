@@ -8,6 +8,9 @@ module.exports = function(app) {
 
     app.route("/whoami")
         .get(function (req, res) {
-            res.end("test");
+            var ip = req.get("X-Requested-For");
+            var lang = req.get("Content-Language");
+            var reqInfo = { "ipaddress": toString(ip), "language": toString(lang) };
+            res.end(JSON.stringify(reqInfo));
         });
 };
