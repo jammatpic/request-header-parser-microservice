@@ -1,4 +1,5 @@
 "use strict";
+var platform = require("platform");
 
 module.exports = function(app) {
     app.route("/")
@@ -8,9 +9,12 @@ module.exports = function(app) {
 
     app.route("/whoami")
         .get(function (req, res) {
-            var ip = req.get("X-Requested-For");
-            var lang = req.get("Content-Language");
-            var reqInfo = { "ipaddress": toString(ip), "language": toString(lang) };
+            var ip = req.get("X-Requested-For") || req.connection.remoteAddress;
+            var lang = req.get("accept-Language").split(",")[0];
+            var os = platform.parse(req.get("user-agent")).os;
+            os = os.family + " " + os.version;
+
+            var reqInfo = { "ipaddress": ip, "language": lang, "software": os };
             res.end(JSON.stringify(reqInfo));
         });
 };
