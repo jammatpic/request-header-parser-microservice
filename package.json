@@ -1,0 +1,21 @@
+{
+  "name": "request-header-parser-microservice",
+  "version": "1.0.0",
+  "description": "A microservice that returns the user's IP address, language and OS.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jammatpic/request-header-parser-microservice.git"
+  },
+  "author": "jammatpic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jammatpic/request-header-parser-microservice/issues"
+  },
+  "homepage": "https://github.com/jammatpic/request-header-parser-microservice#readme",
+  "dependencies": {
+  }
+}
